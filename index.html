@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        padding: 30px;
+        text-align: center;
+        background: rgb(rgb(150, 100, 100), rgb(109, 183, 109), rgb(46, 46, 140));
+    }
+    #quizContainer{
+        transition: opacity 0.3s;
+        margin: 40px;
+    }
+    section{
+        background: rgb(117, 145, 89);
+        padding: 2vmin;
+        max-width: 400px;
+        margin: 50px;
+    }
+    button{
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    }
+</style>
+<body>
+    <section>
+        <h1>Hello world</h1>
+        <div id="quizContainer"></div>
+        <button onclick="starButton()">Continue</button>
+
+    </section>
+    <script>
+        const quotes =["Silence is golden", " No pain, no gain","Time and tide wait for no man","Time is Gold"]
+        const quizContainer= document.querySelector('#quizContainer');
+
+        function generateQuote(){
+            quizContainer.style.opacity = 0;
+
+            setTimeout(()=>{ const randomIndex=Math.floor(Math.random()*quotes.length)
+                quizContainer.textContent=quotes[randomIndex];
+                quizContainer.style.opacity=1;
+            },500)
+        }
+        setInterval(generateQuote,2000)
+    </script>
+    
+</body>
+</html>
